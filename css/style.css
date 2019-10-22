@@ -1,5 +1,7 @@
 :root{
     --color-1: black;
+    --color-2:#4ebb0a;
+    --color-3:white;
 }
 .container-fluid{
     height: 100vh;
@@ -19,16 +21,12 @@
     justify-content: center;
     align-items: center;
 }
-.customerbtn,.reportbtn,.servicerbtn{
+.customerbtn,.reportbtn,.servicerbtn,.userbtn{
     border-radius: 20px;
     width: 30vw;
     height: 8vh;   
 }
-.userbtn{
-    border-radius: 20px;
-    width: 30vw;
-    height: 8vh; 
-}
+
 /* Customer Login page */
 .headername{
     height: 10vh;
@@ -49,4 +47,19 @@ hr{
 }
 .list{
 
+}
+/* registration page */
+.username,.address,.mobileNo,.register{
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.registerbtn{
+    background-color: var(--color-2);
+    border-radius: 20px;
+    width: 30vw;
+    height: 8vh;
+    font-size:30px;
+    color: var(--color-3);
 }
