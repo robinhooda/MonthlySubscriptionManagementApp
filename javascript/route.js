@@ -14,7 +14,7 @@ module.exports = (app, col) => {
 
     app.get("/", (req, res) => {
         col.collection('information').findOne({username:"pradeep"}, function(err, document) {
-            console.log(document)
+            console.log(document.username);
             res.send(document);
           });
     });
