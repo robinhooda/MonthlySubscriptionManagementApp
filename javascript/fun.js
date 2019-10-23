@@ -1,6 +1,7 @@
 let storeAddress;
 let storeMobileno;
 let storeUsername;
+
 $('.newUser').hide();
 $('.list').hide();
 $('.customerbtn').click(function(){
