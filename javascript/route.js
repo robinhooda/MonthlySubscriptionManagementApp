@@ -11,11 +11,14 @@ module.exports = (app, col) => {
         });
         res.status(200).send('successful');
     });
+    
 
     app.get("/", (req, res) => {
-        col.collection('information').findOne({username:"pradeep"}, function(err, document) {
+        // console.log(req.parasm,postId);
+        col.collection('information').findOne({_id:0}, function(err, document) {
             console.log(document.username);
-            res.send(document);
+            
+            // res.send(document);
           });
     });
  }
