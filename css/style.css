@@ -46,7 +46,13 @@ hr{
     align-items: center;
 }
 .list{
-
+    font-size:25px;
+}
+.completeinfo{
+    display:contents;
+}
+.displayinfo-1,.displayinfo-2,.displayinfo-3{
+    margin-left: 8px;
 }
 /* registration page */
 .username,.address,.mobileNo,.register{
