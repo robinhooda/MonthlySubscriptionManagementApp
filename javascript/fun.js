@@ -3,6 +3,8 @@ let storeMobileno;
 let storeUsername;
 let jsondata;
 let currentCount=0;
+let store;
+let results = "";
 $(document).ready(function(){
     $.ajax({
         type:"GET",
@@ -10,24 +12,27 @@ $(document).ready(function(){
         url:"http://localhost:2103/",
  }).done(function(data){
      jsondata = data;
-     customerlist(jsondata);
-     $('.completeinfo').hide();
-     $('.customerinfo').click(function(){
+     $('.customerbtn').click(function(){
          customerlist(jsondata);  
      })
  })
 })
 function customerlist(jsondata){
-    console.log(jsondata);
-    $('.completeinfo').show();
-    if(currentCount < 6){
-    $('.displayinfo-1').text(jsondata[currentCount].username);
-    $('.displayinfo-2').text(jsondata[currentCount].address);
-    $('.displayinfo-3').text(jsondata[currentCount].mobileno);
-    
-    console.log(currentCount);
-    }
-    currentCount++;
+    // console.log(jsondata);
+    //Displaying all the customer list
+    jsondata.forEach(data => {
+      results += `
+      
+        <ul class="list-group mb-4 shadow-sm">
+          <li class="list-group-item bg-dark text-light font-weight-bold">Customer</li>
+          <li class="list-group-item">Company: ${data.username}</li>
+          <li class="list-group-item">Address: ${data.address}</li>
+          <li class="list-group-item">MobileNo: ${data.mobileno}</li>
+        </ul>
+      `;
+    });
+    // document.getElementById("output").innerHTML = results;
+    $('.displayinfo').html(results);
 }
 $('.newUser').hide();
 $('.list').hide();
