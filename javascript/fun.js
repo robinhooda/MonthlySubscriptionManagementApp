@@ -40,6 +40,11 @@ $('.customerbtn').click(function(){
     $('.customer,.report').hide();
     $('.newUser,.list').show();
 });
+$('.addamount').click(function(){
+    compareusername = $('.matchusername').val();
+    // console.log(compareusername);
+    
+})
 $('.registerbtn').click(function(){
     storeUsername = $('.authusername').val();
     console.log(storeUsername);

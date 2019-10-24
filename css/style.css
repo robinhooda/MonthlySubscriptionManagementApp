@@ -21,7 +21,7 @@
     justify-content: center;
     align-items: center;
 }
-.customerbtn,.reportbtn,.servicerbtn,.userbtn{
+.customerbtn,.reportbtn,.servicerbtn,.userbtn,.addquantity{
     border-radius: 20px;
     width: 30vw;
     height: 8vh;   
