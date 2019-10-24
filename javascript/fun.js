@@ -1,7 +1,24 @@
 let storeAddress;
 let storeMobileno;
 let storeUsername;
-
+let jsondata;
+$(document).ready(function(){
+    $.ajax({
+        type:"GET",
+        dataType:"json",
+        url:"http://localhost:2103/",
+ }).done(function(data){
+     jsondata = data;
+     customerlist(jsondata);
+     $('.customerinfo').click(function(){
+         customerlist(jsondata.username);
+         $('.displayinfo').text(jsondata.username);
+     })
+ })
+})
+function customerlist(jsondata){
+    console.log(jsondata);
+}
 $('.newUser').hide();
 $('.list').hide();
 $('.customerbtn').click(function(){
