@@ -15,10 +15,10 @@ module.exports = (app, col) => {
 
     app.get("/", (req, res) => {
         // console.log(req.parasm,postId);
-        col.collection('information').findOne({_id:0}, function(err, document) {
-            console.log(document.username);
+        col.collection('information').findOne({username:"harshada"}, function(err, document) {
+            console.log(document);
             
-            // res.send(document);
+            res.send(document);
           });
     });
  }
