@@ -39,7 +39,7 @@ hr{
     color: var(--color-1);
     height: 2px;
 }
-.newUser{
+.newUser,.amount,.addamount{
     height: 15vh;
     display: flex;
     justify-content: center;
@@ -51,8 +51,8 @@ hr{
 .completeinfo{
     display:contents;
 }
-.displayinfo-1,.displayinfo-2,.displayinfo-3{
-    margin-left: 8px;
+.displayinfo{
+    width:100vw;
 }
 /* registration page */
 .username,.address,.mobileNo,.register{
