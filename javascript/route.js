@@ -1,16 +1,25 @@
 module.exports = (app, col) => {
     app.post("/", (req, res) => {
         // console.log('/');
-        console.log("run");
-        const note={username:req.body.username, address:req.body.address, mobileno:req.body.mobileno};
+        
+        const store={username:req.body.username, address:req.body.address, mobileno:req.body.mobileno};
         // const note = req;
-        console.log(note);
-            col.collection("information").insertOne(note, function (err, result) {
+        // console.log(note);
+            col.collection("information").insertOne(store, function (err, result) {
                 console.log("successful");
             if (err) throw err;
         });
+       
         res.status(200).send('successful');
     });
+    // app.put("/",(req,res)=>{
+    //     console.log("run");
+    //     const milk={quantity:req.body.quantity};
+    //     col.collection("information").insertOne(milk, function (err, result) {
+    //         console.log("quantity is added");
+    //     if (err) throw err;
+    // });
+    // })
     
 
     app.get("/", (req, res) => {
