@@ -10,8 +10,10 @@
 .navColor{
     background-color : #000000 !important;
 }
-.
-/* Index html page */
+.navbar-dark .navbar-text.navName {
+    color: white;
+    font-weight: 400;
+}
 .header{
     height: 20vh;;
     font-size: 50px;;
