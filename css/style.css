@@ -15,6 +15,9 @@
     justify-content: center;
     align-items: center;
 }
+.topper{
+    background-color: #0000;
+}
 .customer,.servicer,.report{
     height: 20vh;
     display: flex;
