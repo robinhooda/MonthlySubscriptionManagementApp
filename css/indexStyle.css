@@ -8,7 +8,7 @@
     margin: 0;
     padding: 0;
     color:white;
-    background-color: #082631;
+    background-color: #000000;
   }
   .body{
     background-color: #082631;
@@ -34,7 +34,7 @@
   }
   
   h1 {
-    font-size: 5rem;
+    font-size: 3rem;
     color:white;
     font-style: normal;
     font-weight: bold;
