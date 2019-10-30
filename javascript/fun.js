@@ -14,6 +14,7 @@ $(document).ready(function(){
         dataType:"json",
         url:"http://localhost:2103/",
  }).done(function(data){
+     console.log(data);
      jsondata = data;
      $('.customerbtn').click(function(){
          customerlist(jsondata);  
@@ -23,7 +24,7 @@ $(document).ready(function(){
 function customerlist(jsondata){
     console.log(jsondata);
     //Displaying all the customer list
-    jsondata.stringify(jsondata).forEach(data => {
+    jsondata.forEach(data => {
       results += `
       
         <ul class="list-group mb-4 shadow-sm">
