@@ -14,20 +14,16 @@
     color: white;
     font-weight: 400;
 }
-.icons{
-    color:white;
-}
+
 .icons:hover{
     color: #0175B9;
-    font-size: 120%;
+    font-size: 110%;
     transition-duration: 10ms;
 }
-<!DOCTYPE html>
-<html>
-<style>
 .icons {
+  color: white;
   position: relative;
-  display: inline-block;
+  display : inline-block;
 
 }
 
@@ -48,10 +44,6 @@
 .icons:hover .tooltiptext {
   visibility: visible;
 
-}
-.icons:hover{
-  color:blue;
-  font-size:150%;
 }
 .header{
     height: 20vh;;
