@@ -14,6 +14,13 @@
     color: white;
     font-weight: 400;
 }
+.icons{
+    color:white;
+}
+.icons:hover{
+    color: #0175B9;
+    font-size: 120%;
+}
 .header{
     height: 20vh;;
     font-size: 50px;;
