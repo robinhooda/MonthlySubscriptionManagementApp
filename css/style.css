@@ -14,30 +14,28 @@
     color: white;
     font-weight: 400;
 }
-
-.icons:hover{
-    color: #0175B9;
-    font-size: 110%;
-    transition-duration: 10ms;
-}
 .icons {
   color: white;
   position: relative;
   display : inline-block;
-  font-size: 1.2em;
-
+  font-size: 1.1em;
 }
-
-.icons .tooltiptext {
+.icons:hover{
+    color: #0175B9;
+    font-size: 120%;
+    transition-duration: 10ms;
+}
+/* .icons .tooltiptext {
   visibility: hidden;
   width: 120px;
-  background-color: black;
-  color: #fff;
+  background-color: grey;
+  color: #0175B9;
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
+  top:50px;
 
-  /* Position the tooltip */
+  Position the tooltip
   position: absolute;
   z-index: 1;
 }
@@ -45,7 +43,7 @@
 .icons:hover .tooltiptext {
   visibility: visible;
 
-}
+} */
 .header{
     height: 20vh;;
     font-size: 50px;;
