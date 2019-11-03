@@ -1,35 +1,40 @@
-let storeAddress;
-let storeMobileno;
-let storeUsername;
+// Javascript file 
 let jsondata="";
+let jsonQuantitydata="";
 let currentCount=0;
 let store;
 let results = "";
 let result = "";
 let data;
-let compareusername; 
-let storeQuantity;
 // let b={};
+$('.newUser').hide();
+$('.list').hide();
 $(document).ready(function(){
     $.ajax({
         type:"GET",
         dataType:"json",
         url:"http://localhost:2103/",
- }).done(function(data){
-     console.log(data);
-     jsondata = data;
-     $('.newUser').hide();
-     $('.list').hide();
-     $('.customerbtn').click(function(){
-        $('.customer,.report').hide();
-        $('.newUser,.list').show();
-         customerlist(jsondata); 
-     })
-     $('.displayreport').click(function(){
-         console.log("hello");
-         reportlist(jsondata);
-     })
- })
+    }).done(function(data){
+        //  console.log(data);
+         jsondata = data;
+        $('.customerbtn').click(function(){
+            $('.customer,.report').hide();
+            $('.newUser,.list').show();
+            customerlist(jsondata); 
+        })
+    })
+     $.ajax({
+        type:"GET",
+        dataType:"json",
+        url:"http://localhost:2103/quantity",
+     }).done(function(Quantitydata){
+            // console.log(Quantitydata);
+            jsonQuantitydata = Quantitydata;
+            $('.displayreport').click(function(){
+                console.log("hello");
+                reportlist(jsonQuantitydata);
+            })
+        })
 })
 function customerlist(jsondata){
     console.log(jsondata);
@@ -39,7 +44,7 @@ function customerlist(jsondata){
       
         <ul class="list-group mb-4 shadow-sm">
           <li class="list-group-item bg-dark text-light font-weight-bold">Customer</li>
-          <li class="list-group-item">Company: ${data.username}</li>
+          <li class="list-group-item">Username: ${data.username}</li>
           <li class="list-group-item">Address: ${data.address}</li>
           <li class="list-group-item">MobileNo: ${data.mobileno}</li>
         </ul>
@@ -47,22 +52,26 @@ function customerlist(jsondata){
     });
     $('.displayinfo').html(results);
 }
-
-
+// Added quantity into database
+let Quantitydata;
+let compareusername; 
+let storeQuantity;
 $('.addamount').click(function(){
-    compareusername = $('.matchusername').val();
+    compareUsername = $('.matchusername').val();
+    storeMonth = $('.matchmonth').val();
     storeQuantity = $('.quantity').val();
-    console.log(compareusername);
+    console.log(storeQuantity);
     jsondata.find(compare=>{
         // console.log(compare.username);
-        if(compareusername == compare.username){
-            console.log("hello");
+        if(compareUsername == compare.username){
+            // console.log("hello");
             $.ajax({
                 type:'POST',
                 dataType:'json',
                 url:'http://localhost:2103/quantity',
                 data:{
-                    'username':compareusername,
+                    'username':compareUsername,
+                    'month':storeMonth,
                     'quantity':storeQuantity
                 },
                 success:function(){
@@ -70,26 +79,30 @@ $('.addamount').click(function(){
                 }
             })
         }
-        else{
-            console.log("nothing");
-        }
+        alert("Data inserted successfully");
     })
     
 })
-function reportlist(jsondata){
-    console.log(jsondata);
-    //Displaying all the customer list
-    jsondata.forEach(data => {
+function reportlist(jsonQuantitydata){
+    console.log(jsonQuantitydata);
+    //Displaying all record
+    jsonQuantitydata.forEach(data => {
       result += `
       
         <ul class="list-group mb-4 shadow-sm">
           <li class="list-group-item bg-dark text-light font-weight-bold">Customer</li>
-          <li class="list-group-item">Company: ${data.username}</li>
+          <li class="list-group-item">Username: ${data.username}</li>
+          <li class="list-group-item">Month: ${data.month}</li>
+          <li class="list-group-item">Quantity: ${data.quantity}</li>
         </ul>
       `;
     });
     $('.displayreport').html(result);
 }
+// Added username and address into database
+let storeAddress;
+let storeMobileno;
+let storeUsername;
 $('.registerbtn').click(function(){
     storeUsername = $('.authusername').val();
     console.log(storeUsername);

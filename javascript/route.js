@@ -11,8 +11,8 @@ module.exports = (app, col) => {
         res.status(200).json({"success":"User Registred Successfully"});
     });
     app.post("/quantity",(req,res)=>{
-        console.log("run");
-        const milk= {username:req.bodyusername,quantity:req.body.quantity};
+        console.log(req.body);
+        const milk= {username:req.body.username, month:req.body.month, quantity:req.body.quantity};
         col.collection("quantity").insertOne(milk, function (err, result) {
             console.log("quantity is added");
         if (err) throw err;
@@ -22,6 +22,14 @@ module.exports = (app, col) => {
     app.get("/", (req, res) => {
         // console.log(req.parasm,postId);
         col.collection('information').find({}).toArray(function(err, document) {
+            // console.log(document);
+            
+            res.send(document);
+          });
+    });
+    app.get("/quantity", (req, res) => {
+        // console.log(req.parasm,postId);
+        col.collection('quantity').find({}).toArray(function(err, document) {
             // console.log(document);
             
             res.send(document);
