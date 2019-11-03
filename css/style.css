@@ -21,7 +21,12 @@
     justify-content: center;
     align-items: center;
 }
-.customerbtn,.reportbtn,.servicerbtn,.userbtn,.addquantity{
+.list-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.customerbtn,.reportbtn,.servicerbtn,.userbtn,.addquantity,.displayreport{
     border-radius: 20px;
     width: 30vw;
     height: 8vh;   
@@ -45,10 +50,10 @@ hr{
     justify-content: center;
     align-items: center;
 }
-.list{
+.list,.list-1{
     font-size:25px;
 }
-.completeinfo{
+.completeinfo,.reportdata{
     display:contents;
 }
 .displayinfo{
