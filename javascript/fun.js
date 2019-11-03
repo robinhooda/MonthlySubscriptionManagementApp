@@ -5,9 +5,10 @@ let jsondata;
 let currentCount=0;
 let store;
 let results = "";
+let result = "";
 let data;
-// let compareusername; 
-// let storeQuantity;
+let compareusername; 
+let storeQuantity;
 $(document).ready(function(){
     $.ajax({
         type:"GET",
@@ -16,8 +17,16 @@ $(document).ready(function(){
  }).done(function(data){
      console.log(data);
      jsondata = data;
+     $('.newUser').hide();
+     $('.list').hide();
      $('.customerbtn').click(function(){
-         customerlist(jsondata);  
+        $('.customer,.report').hide();
+        $('.newUser,.list').show();
+         customerlist(jsondata); 
+     })
+     $('.displayreport').click(function(){
+         console.log("hello");
+         reportlist(jsondata);
      })
  })
 })
@@ -35,35 +44,44 @@ function customerlist(jsondata){
         </ul>
       `;
     });
-    // document.getElementById("output").innerHTML = results;
     $('.displayinfo').html(results);
 }
-$('.newUser').hide();
-$('.list').hide();
-$('.customerbtn').click(function(){
-    $('.customer,.report').hide();
-    $('.newUser,.list').show();
-});
-// $('.addamount').click(function(){
-//     compareusername = $('.matchusername').val();
-//     storeQuantity = $('.quantity').val();
-//     // console.log(compareusername);
-//     jsondata.find(compare=>{
-//         // console.log(compare);
-//         if(compareusername == compare.username ){
-//             // console.log("hello");
-//             $.ajax({
-//                 type:'PUT',
-//                 dataType:'json',
-//                 url:'http://localhost:2103/',
-//                 data:{
-//                     'quantity':storeQuantity
-//                 }
-//             })
-//         }
-//     })
+
+
+$('.addamount').click(function(){
+    compareusername = $('.matchusername').val();
+    storeQuantity = $('.quantity').val();
+    console.log(compareusername);
+    jsondata.forEach(compare=>{
+        console.log(compare.username);
+        if(compareusername === compare.username ){
+            console.log("hello");
+            // $.ajax({
+            //     type:'PUT',
+            //     dataType:'json',
+            //     url:'http://localhost:2103/',
+            //     data:{
+            //         'quantity':storeQuantity
+            //     }
+            // })
+        }
+    })
     
-// })
+})
+function reportlist(jsondata){
+    console.log(jsondata);
+    //Displaying all the customer list
+    jsondata.forEach(data => {
+      result += `
+      
+        <ul class="list-group mb-4 shadow-sm">
+          <li class="list-group-item bg-dark text-light font-weight-bold">Customer</li>
+          <li class="list-group-item">Company: ${data.username}</li>
+        </ul>
+      `;
+    });
+    $('.displayreport').html(result);
+}
 $('.registerbtn').click(function(){
     storeUsername = $('.authusername').val();
     console.log(storeUsername);
@@ -80,6 +98,10 @@ $('.registerbtn').click(function(){
             'address':storeAddress,
             'mobileno':storeMobileno 
         },
+        success:function(){
+            console.log("success");
+        }
     });
+    alert("Successfully Registered");
 })
 
