@@ -1,7 +1,7 @@
 // Javascript file 
 let jsondata="";
+let Quantitydata;
 let jsonQuantitydata="";
-let currentCount=0;
 let store;
 let results = "";
 let result = "";
@@ -53,7 +53,7 @@ function customerlist(jsondata){
     $('.displayinfo').html(results);
 }
 // Added quantity into database
-let Quantitydata;
+
 let compareusername; 
 let storeQuantity;
 $('.addamount').click(function(){
@@ -62,9 +62,9 @@ $('.addamount').click(function(){
     storeQuantity = $('.quantity').val();
     console.log(storeQuantity);
     jsondata.find(compare=>{
-        // console.log(compare.username);
+        console.log(compare.username);
         if(compareUsername == compare.username){
-            // console.log("hello");
+            console.log("Exist");
             $.ajax({
                 type:'POST',
                 dataType:'json',
@@ -78,22 +78,21 @@ $('.addamount').click(function(){
                     console.log("success");
                 }
             })
-        }
-        alert("Data inserted successfully");
+        }   
     })
-    
+    alert("Data inserted successfully");
 })
 function reportlist(jsonQuantitydata){
     console.log(jsonQuantitydata);
     //Displaying all record
-    jsonQuantitydata.forEach(data => {
+    jsonQuantitydata.forEach(Quantitydata => {
       result += `
       
         <ul class="list-group mb-4 shadow-sm">
           <li class="list-group-item bg-dark text-light font-weight-bold">Customer</li>
-          <li class="list-group-item">Username: ${data.username}</li>
-          <li class="list-group-item">Month: ${data.month}</li>
-          <li class="list-group-item">Quantity: ${data.quantity}</li>
+          <li class="list-group-item">Username: ${Quantitydata.username}</li>
+          <li class="list-group-item">Month: ${Quantitydata.month}</li>
+          <li class="list-group-item">Quantity: ${Quantitydata.quantity}</li>
         </ul>
       `;
     });
