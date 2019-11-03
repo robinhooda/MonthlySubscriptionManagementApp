@@ -1,7 +1,7 @@
 let storeAddress;
 let storeMobileno;
 let storeUsername;
-let jsondata;
+let jsondata="";
 let currentCount=0;
 let store;
 let results = "";
@@ -9,6 +9,7 @@ let result = "";
 let data;
 let compareusername; 
 let storeQuantity;
+// let b={};
 $(document).ready(function(){
     $.ajax({
         type:"GET",
@@ -52,18 +53,25 @@ $('.addamount').click(function(){
     compareusername = $('.matchusername').val();
     storeQuantity = $('.quantity').val();
     console.log(compareusername);
-    jsondata.forEach(compare=>{
-        console.log(compare.username);
-        if(compareusername === compare.username ){
+    jsondata.find(compare=>{
+        // console.log(compare.username);
+        if(compareusername == compare.username){
             console.log("hello");
-            // $.ajax({
-            //     type:'PUT',
-            //     dataType:'json',
-            //     url:'http://localhost:2103/',
-            //     data:{
-            //         'quantity':storeQuantity
-            //     }
-            // })
+            $.ajax({
+                type:'POST',
+                dataType:'json',
+                url:'http://localhost:2103/quantity',
+                data:{
+                    'username':compareusername,
+                    'quantity':storeQuantity
+                },
+                success:function(){
+                    console.log("success");
+                }
+            })
+        }
+        else{
+            console.log("nothing");
         }
     })
     
@@ -92,7 +100,7 @@ $('.registerbtn').click(function(){
     $.ajax({
         type: "POST",
         dataType: "json",
-        url: "http://localhost:2103/",
+        url: "http://localhost:2103/alldata",
         data:{
             'username':storeUsername,
             'address':storeAddress,
