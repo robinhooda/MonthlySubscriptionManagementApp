@@ -6,7 +6,7 @@ let currentCount=0;
 let store;
 let results = "";
 let data;
-// let compareusername;
+// let compareusername; 
 // let storeQuantity;
 $(document).ready(function(){
     $.ajax({
