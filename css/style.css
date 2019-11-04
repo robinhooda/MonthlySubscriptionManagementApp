@@ -1,0 +1,76 @@
+:root{
+    --color-1: black;
+    --color-2:#4ebb0a;
+    --color-3:white;
+}
+.container-fluid{
+    height: 100vh;
+    width:100vw; 
+}
+/* Index html page */
+.header{
+    height: 20vh;;
+    font-size: 50px;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.customer,.servicer,.report{
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.customerbtn,.reportbtn,.servicerbtn,.userbtn,.addquantity,.displayreport{
+    border-radius: 20px;
+    width: 30vw;
+    height: 8vh;   
+}
+
+/* Customer Login page */
+.headername{
+    height: 10vh;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+hr{
+    color: var(--color-1);
+    height: 2px;
+}
+.newUser,.amount,.addamount{
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list,.list-1{
+    font-size:25px;
+}
+.completeinfo,.reportdata{
+    display:contents;
+}
+.displayinfo{
+    width:100vw;
+}
+/* registration page */
+.username,.address,.mobileNo,.register,.month{
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.registerbtn{
+    background-color: var(--color-2);
+    border-radius: 20px;
+    width: 30vw;
+    height: 8vh;
+    font-size:30px;
+    color: var(--color-3);
+}
