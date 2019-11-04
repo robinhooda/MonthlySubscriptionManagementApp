@@ -1,3 +1,5 @@
+
+
 // Javascript file 
 let jsondata="";
 let Quantitydata;
@@ -6,7 +8,7 @@ let store;
 let results = "";
 let result = "";
 let data;
-// let b={};
+
 $('.newUser').hide();
 $('.list').hide();
 $(document).ready(function(){
@@ -33,8 +35,8 @@ $(document).ready(function(){
             $('.displayreport').click(function(){
                 console.log("hello");
                 reportlist(jsonQuantitydata);
-            })
         })
+})
 })
 function customerlist(jsondata){
     console.log(jsondata);
@@ -104,11 +106,11 @@ let storeMobileno;
 let storeUsername;
 $('.registerbtn').click(function(){
     storeUsername = $('.authusername').val();
-    console.log(storeUsername);
+    // console.log(storeUsername);
     storeAddress = $('.authaddress').val();
-    console.log(storeAddress);
+    // console.log(storeAddress);
     storeMobileno = $('.authmobileno').val();
-    console.log(storeMobileno);
+    // console.log(storeMobileno);
     $.ajax({
         type: "POST",
         dataType: "json",

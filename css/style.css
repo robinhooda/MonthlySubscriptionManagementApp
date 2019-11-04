@@ -97,7 +97,7 @@ hr{
     width:100vw;
 }
 /* registration page */
-.username,.address,.mobileNo,.register{
+.username,.address,.mobileNo,.register,.month{
     height: 10vh;
     display: flex;
     justify-content: center;
