@@ -1,1 +1,1 @@
-# MonthSubscriptionManagementApp
+# Monthly Subscription Management App
