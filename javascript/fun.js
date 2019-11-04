@@ -1,5 +1,3 @@
-
-
 // Javascript file 
 let jsondata="";
 let Quantitydata;
@@ -8,16 +6,16 @@ let store;
 let results = "";
 let result = "";
 let data;
-
+// let b={};
 $('.newUser').hide();
 $('.list').hide();
 $(document).ready(function(){
     $.ajax({
         type:"GET",
         dataType:"json",
-        url:"http://localhost:2103/",
+        url:"http://localhost:3217/",
     }).done(function(data){
-        //  console.log(data);
+         console.log(data);
          jsondata = data;
         $('.customerbtn').click(function(){
             $('.customer,.report').hide();
@@ -28,15 +26,15 @@ $(document).ready(function(){
      $.ajax({
         type:"GET",
         dataType:"json",
-        url:"http://localhost:2103/quantity",
+        url:"http://localhost:3217/quantity",
      }).done(function(Quantitydata){
             // console.log(Quantitydata);
             jsonQuantitydata = Quantitydata;
             $('.displayreport').click(function(){
                 console.log("hello");
                 reportlist(jsonQuantitydata);
+            })
         })
-})
 })
 function customerlist(jsondata){
     console.log(jsondata);
@@ -70,7 +68,7 @@ $('.addamount').click(function(){
             $.ajax({
                 type:'POST',
                 dataType:'json',
-                url:'http://localhost:2103/quantity',
+                url:'http://localhost:3217/quantity',
                 data:{
                     'username':compareUsername,
                     'month':storeMonth,
@@ -106,15 +104,15 @@ let storeMobileno;
 let storeUsername;
 $('.registerbtn').click(function(){
     storeUsername = $('.authusername').val();
-    // console.log(storeUsername);
+    console.log(storeUsername);
     storeAddress = $('.authaddress').val();
-    // console.log(storeAddress);
+    console.log(storeAddress);
     storeMobileno = $('.authmobileno').val();
-    // console.log(storeMobileno);
+    console.log(storeMobileno);
     $.ajax({
         type: "POST",
         dataType: "json",
-        url: "http://localhost:2103/alldata",
+        url: "http://localhost:3217/alldata",
         data:{
             'username':storeUsername,
             'address':storeAddress,
