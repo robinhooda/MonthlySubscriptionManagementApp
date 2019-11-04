@@ -31,12 +31,4 @@ module.exports = (app, col) => {
             res.send(document);
           });
     });
-    app.get("/quantity", (req, res) => {
-        // console.log(req.parasm,postId);
-        col.collection('quantity').find({}).toArray(function(err, document) {
-            // console.log(document);
-            
-            res.send(document);
-          });
-    });
  }
