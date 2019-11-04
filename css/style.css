@@ -57,7 +57,12 @@
     justify-content: center;
     align-items: center;
 }
-.customerbtn,.reportbtn,.servicerbtn,.userbtn{
+.list-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.customerbtn,.reportbtn,.servicerbtn,.userbtn,.addquantity,.displayreport{
     border-radius: 20px;
     width: 30vw;
     height: 8vh;   
@@ -75,17 +80,23 @@ hr{
     color: var(--color-1);
     height: 2px;
 }
-.newUser{
+.newUser,.amount,.addamount{
     height: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.list{
-
+.list,.list-1{
+    font-size:25px;
+}
+.completeinfo,.reportdata{
+    display:contents;
+}
+.displayinfo{
+    width:100vw;
 }
 /* registration page */
-.username,.address,.mobileNo,.register{
+.username,.address,.mobileNo,.register,.month{
     height: 10vh;
     display: flex;
     justify-content: center;
