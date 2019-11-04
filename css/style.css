@@ -44,6 +44,7 @@
   visibility: visible;
 
 } */
+/* Index html page */
 .header{
     height: 20vh;;
     font-size: 50px;;
@@ -57,7 +58,12 @@
     justify-content: center;
     align-items: center;
 }
-.customerbtn,.reportbtn,.servicerbtn,.userbtn{
+.list-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.customerbtn,.reportbtn,.servicerbtn,.userbtn,.addquantity,.displayreport{
     border-radius: 20px;
     width: 30vw;
     height: 8vh;   
@@ -75,14 +81,20 @@ hr{
     color: var(--color-1);
     height: 2px;
 }
-.newUser{
+.newUser,.amount,.addamount{
     height: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.list{
-
+.list,.list-1{
+    font-size:25px;
+}
+.completeinfo,.reportdata{
+    display:contents;
+}
+.displayinfo{
+    width:100vw;
 }
 /* registration page */
 .username,.address,.mobileNo,.register{
