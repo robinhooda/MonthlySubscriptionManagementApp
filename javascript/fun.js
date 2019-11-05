@@ -82,11 +82,12 @@ $('.addamount').click(function(){
     })
     alert("Data inserted successfully");
 })
-
+let totalQuantity=0;
 function reportlist(jsonQuantitydata){
     console.log(jsonQuantitydata);
     //Displaying all record
     jsonQuantitydata.forEach(Quantitydata => {
+        totalQuantity = parseInt(totalQuantity) + parseInt(Quantitydata.quantity);
       result += `
         <ul class="list-group mb-4 shadow-sm">
           <li class="list-group-item bg-dark text-light font-weight-bold">Customer</li>
@@ -96,6 +97,7 @@ function reportlist(jsonQuantitydata){
         </ul>
       `;
     });
+        $('.totalQuan').html(totalQuantity);
     $('.displayreport').html(result);
 }
 // Checked user already exist or not

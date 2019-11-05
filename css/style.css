@@ -97,7 +97,7 @@ hr{
     color: var(--color-1);
     height: 2px;
 }
-.newUser,.addamount{
+.newUser,.addamount,.totalquantity{
     height: 15vh;
     display: flex;
     justify-content: center;
