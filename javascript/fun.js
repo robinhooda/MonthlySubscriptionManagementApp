@@ -41,7 +41,6 @@ function customerlist(jsondata){
     //Displaying all the customer list
     jsondata.forEach(data => {
       results += `
-      
         <ul class="list-group mb-4 shadow-sm">
           <li class="list-group-item bg-dark text-light font-weight-bold">Customer</li>
           <li class="list-group-item">Username: ${data.username}</li>
@@ -54,25 +53,53 @@ function customerlist(jsondata){
 }
 // Added quantity into database
 
+// let compareusername; 
+// let storeQuantity;
+// $('.addamount').click(function(){
+//     compareUsername = $('.matchusername').val();
+//     storeMonth = $('.matchmonth').val();
+//     storeQuantity = $('.quantity').val();
+//     console.log(storeQuantity);
+//     jsondata.find(compare=>{
+//         console.log(compare.username);
+//         // if entered username and stored username is same then it will go inside if loop
+//         if(compareUsername == compare.username){
+//             console.log("Exist");
+//             $.ajax({
+//                 type:'POST',
+//                 dataType:'json',
+//                 url:'http://localhost:3217/quantity',
+//                 data:{
+//                     'username':compareUsername,
+//                     'month':storeMonth,
+//                     'quantity':storeQuantity
+//                 },
+//                 success:function(){
+//                     console.log("success");
+//                 }
+//             })
+//         }   
+//     })
+//     alert("Data inserted successfully");
+// })
 let compareusername; 
 let storeQuantity;
-$('.addamount').click(function(){
+$('.submit').click(function(){
     compareUsername = $('.matchusername').val();
-    storeMonth = $('.matchmonth').val();
     storeQuantity = $('.quantity').val();
     console.log(storeQuantity);
     jsondata.find(compare=>{
         console.log(compare.username);
+        // if entered username and stored username is same then it will go inside if loop
         if(compareUsername == compare.username){
             console.log("Exist");
             $.ajax({
-                type:'POST',
+                type:'PUT',
                 dataType:'json',
-                url:'http://localhost:3217/quantity',
+                url:'http://localhost:3217/try',
                 data:{
                     'username':compareUsername,
-                    'month':storeMonth,
-                    'quantity':storeQuantity
+                    'day':storeQuantity
                 },
                 success:function(){
                     console.log("success");
@@ -87,7 +114,6 @@ function reportlist(jsonQuantitydata){
     //Displaying all record
     jsonQuantitydata.forEach(Quantitydata => {
       result += `
-      
         <ul class="list-group mb-4 shadow-sm">
           <li class="list-group-item bg-dark text-light font-weight-bold">Customer</li>
           <li class="list-group-item">Username: ${Quantitydata.username}</li>
