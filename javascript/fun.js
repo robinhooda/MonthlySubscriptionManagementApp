@@ -53,39 +53,11 @@ function customerlist(jsondata){
 }
 // Added quantity into database
 
-// let compareusername; 
-// let storeQuantity;
-// $('.addamount').click(function(){
-//     compareUsername = $('.matchusername').val();
-//     storeMonth = $('.matchmonth').val();
-//     storeQuantity = $('.quantity').val();
-//     console.log(storeQuantity);
-//     jsondata.find(compare=>{
-//         console.log(compare.username);
-//         // if entered username and stored username is same then it will go inside if loop
-//         if(compareUsername == compare.username){
-//             console.log("Exist");
-//             $.ajax({
-//                 type:'POST',
-//                 dataType:'json',
-//                 url:'http://localhost:3217/quantity',
-//                 data:{
-//                     'username':compareUsername,
-//                     'month':storeMonth,
-//                     'quantity':storeQuantity
-//                 },
-//                 success:function(){
-//                     console.log("success");
-//                 }
-//             })
-//         }   
-//     })
-//     alert("Data inserted successfully");
-// })
 let compareusername; 
 let storeQuantity;
-$('.submit').click(function(){
+$('.addamount').click(function(){
     compareUsername = $('.matchusername').val();
+    storeMonth = $('.matchmonth').val();
     storeQuantity = $('.quantity').val();
     console.log(storeQuantity);
     jsondata.find(compare=>{
@@ -94,12 +66,13 @@ $('.submit').click(function(){
         if(compareUsername == compare.username){
             console.log("Exist");
             $.ajax({
-                type:'PUT',
+                type:'POST',
                 dataType:'json',
-                url:'http://localhost:3217/try',
+                url:'http://localhost:3217/quantity',
                 data:{
                     'username':compareUsername,
-                    'day':storeQuantity
+                    'month':storeMonth,
+                    'quantity':storeQuantity
                 },
                 success:function(){
                     console.log("success");
@@ -109,6 +82,7 @@ $('.submit').click(function(){
     })
     alert("Data inserted successfully");
 })
+
 function reportlist(jsonQuantitydata){
     console.log(jsonQuantitydata);
     //Displaying all record
@@ -147,6 +121,7 @@ $('.registerbtn').click(function(){
     console.log(storeAddress);
     storeMobileno = $('.authmobileno').val();
     console.log(storeMobileno);
+    if(!(storeUsername=="" && storeAddress=="" && storeMobileno=="")){
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -161,4 +136,6 @@ $('.registerbtn').click(function(){
         }
     });
     alert("Successfully Registered");
+}
+alert("All fields are required");
 })

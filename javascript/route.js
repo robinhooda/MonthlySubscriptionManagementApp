@@ -10,23 +10,15 @@ module.exports = (app, col) => {
         });
         res.status(200).json({"success":"User Registred Successfully"});
     });
-    // app.post("/quantity",(req,res)=>{
-    //     console.log(req.body);
-    //     const milk= {username:req.body.username, month:req.body.month, quantity:req.body.quantity};
-    //     col.collection("quantity").insertOne(milk, function (err, result) {
-    //         console.log("quantity is added");
-    //     if (err) throw err;
-    // });
-    // })
-    app.put("/try",(req,res)=>{
-        console.log(req);
-        // const milk= {username:req.body.username, day:req.body.day};
-        const milk=req.body.username;
-        const quan= req.body.day
-        col.collection("day").updateOne({"username":milk}, {$set: { "day" : [{"1":quan}]} });
+    app.post("/quantity",(req,res)=>{
+        console.log(req.body);
+        const milk= {username:req.body.username, month:req.body.month, quantity:req.body.quantity};
+        col.collection("quantity").insertOne(milk, function (err, result) {
             console.log("quantity is added");
+        if (err) throw err;
     });
-
+    })
+   
     app.get("/", (req, res) => {
         col.collection('information').find({}).toArray(function(err, document) {
             // console.log(document);
