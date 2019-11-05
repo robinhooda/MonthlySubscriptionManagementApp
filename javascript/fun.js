@@ -98,6 +98,18 @@ function reportlist(jsonQuantitydata){
     });
     $('.displayreport').html(result);
 }
+// Checked user already exist or not
+let usrname;
+let mobile;
+$('.loginbtn').click(function(){
+    usrname = $('.authusername').val();
+    mobile = $('.authmobileno').val();
+    jsondata.find(check=>{
+        if(usrname==check.username && mobile==check.mobileno){
+            alert("Login successfully");
+        }
+    })
+})
 // Added username and address into database
 let storeAddress;
 let storeMobileno;
