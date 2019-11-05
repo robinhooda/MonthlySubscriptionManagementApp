@@ -52,7 +52,7 @@
     justify-content: center;
     align-items: center;
 }
-.customer,.servicer,.report{
+.customer,.servicer,.report,.login,.newuser{
     height: 20vh;
     display: flex;
     justify-content: center;
@@ -63,10 +63,17 @@
     justify-content: center;
     align-items: center;
 }
-.customerbtn,.reportbtn,.servicerbtn,.userbtn,.addquantity,.displayreport{
+.customerbtn,.reportbtn,.servicerbtn,.userbtn,.addquantity,.loginbtn{
     border-radius: 20px;
     width: 30vw;
-    height: 8vh;   
+    height: 8vh; 
+    color:var(--color-3);
+    background-color:var(--color-1);  
+}
+.displayreport{
+    border-radius: 20px;
+    width: 30vw;
+    height: 8vh;
 }
 
 /* Customer Login page */
@@ -103,7 +110,7 @@ hr{
     justify-content: center;
     align-items: center; 
 }
-.registerbtn{
+.registerbtn,.submit{
     background-color: var(--color-2);
     border-radius: 20px;
     width: 30vw;
