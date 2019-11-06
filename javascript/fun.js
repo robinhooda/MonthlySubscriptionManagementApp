@@ -79,9 +79,11 @@ $('.addamount').click(function(){
                     console.log("success");
                 }
             });
-        }   
+            alert("Data inserted successfully");
+        } 
+        alert("Username does not exist");
     });
-    alert("Data inserted successfully");
+    
 });
 
 // Displayed quantity data

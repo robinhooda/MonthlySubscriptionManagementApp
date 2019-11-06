@@ -9,6 +9,8 @@ router.post("/alldata", (req, res) => {
     const note={username:req.body.username, address:req.body.address, mobileno:req.body.mobileno};
     // Display on console
     console.log(note);
+
+    
     const newStore = new Store({
         username:note.username,
         address:note.address,
