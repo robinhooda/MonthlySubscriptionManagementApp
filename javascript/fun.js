@@ -26,7 +26,7 @@ $(document).ready(function(){
      $.ajax({
         type:"GET",
         dataType:"json",
-        url:"http://localhost:3217/quantity",
+        url:"http://localhost:3217/Quantityperday",
      }).done(function(Quantitydata){
             // console.log(Quantitydata);
             jsonQuantitydata = Quantitydata;
@@ -57,7 +57,7 @@ let compareusername;
 let storeQuantity;
 $('.addamount').click(function(){
     compareUsername = $('.matchusername').val();
-    storeMonth = $('.matchmonth').val();
+    storeDate = $('.matchDate').val();
     storeQuantity = $('.quantity').val();
     console.log(storeQuantity);
     jsondata.find(compare=>{
@@ -68,10 +68,10 @@ $('.addamount').click(function(){
             $.ajax({
                 type:'POST',
                 dataType:'json',
-                url:'http://localhost:3217/quantity',
+                url:'http://localhost:3217/Quantityperday',
                 data:{
                     'username':compareUsername,
-                    'month':storeMonth,
+                    'date':storeDate,
                     'quantity':storeQuantity
                 },
                 success:function(){
@@ -92,7 +92,7 @@ function reportlist(jsonQuantitydata){
         <ul class="list-group mb-4 shadow-sm">
           <li class="list-group-item bg-dark text-light font-weight-bold">Customer</li>
           <li class="list-group-item">Username: ${Quantitydata.username}</li>
-          <li class="list-group-item">Month: ${Quantitydata.month}</li>
+          <li class="list-group-item">Date: ${Quantitydata.date}</li>
           <li class="list-group-item">Quantity: ${Quantitydata.quantity}</li>
         </ul>
       `;
