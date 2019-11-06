@@ -6,16 +6,15 @@ let store;
 let results = "";
 let result = "";
 let data;
-// let b={};
-$('.newUser').hide();
-$('.list').hide();
+
 $(document).ready(function(){
+    $('.newUser').hide();
+    $('.list').hide();
     $.ajax({
         type:"GET",
         dataType:"json",
         url:"http://localhost:3217/alldata",
     }).done(function(data){
-         
          jsondata = data;
         $('.customerbtn').click(function(){
             $('.customer,.report').hide();
@@ -36,6 +35,7 @@ $(document).ready(function(){
             });
         });
 });
+// Calling function from click on customer button
 function customerlist(jsondata){
     console.log(jsondata);
     //Displaying all the customer list
@@ -82,6 +82,8 @@ $('.addamount').click(function(){
     });
     alert("Data inserted successfully");
 });
+
+// Displayed quantity data
 let totalQuantity=0;
 function reportlist(jsonQuantitydata){
     console.log(jsonQuantitydata);
