@@ -59,30 +59,37 @@ let storeQuantity;
 $('.addamount').click(function(){
     compareUsername = $('.matchusername').val();
     storeDate = $('.matchDate').val();
+    let dateValid = /^([0-9]{2})\/([0-9]{2})\/([0-9]{2})$/;
     storeQuantity = $('.quantity').val();
     console.log(storeQuantity);
-    jsondata.find(compare=>{
-        console.log(compare.username);
-        // if entered username and stored username is same then it will go inside if loop
-        if(compareUsername == compare.username){
-            console.log("Exist");
-            $.ajax({
-                type:'POST',
-                dataType:'json',
-                url:'http://localhost:3217/quantities',
-                data:{
-                    'username':compareUsername,
-                    'date':storeDate,
-                    'quantity':storeQuantity
-                },
-                success:function(){
-                    console.log("success");
-                }
-            });
-            alert("Data inserted successfully");
-        } 
-        alert("Username does not exist");
-    });
+    if(!(storeDate.match(dateValid))){
+        alert("Invalid date format");
+    }
+    else{
+        jsondata.find(compare=>{
+            console.log(compare.username);
+            // if entered username and stored username is same then it will go inside if loop
+            if(compareUsername == compare.username){
+                console.log("Exist");
+                $.ajax({
+                    type:'POST',
+                    dataType:'json',
+                    url:'http://localhost:3217/quantities',
+                    data:{
+                        'username':compareUsername,
+                        'date':storeDate,
+                        'quantity':storeQuantity
+                    },
+                    success:function(){
+                        console.log("success");
+                    }
+                });
+                alert("Data inserted successfully");
+            } 
+            
+        });
+    }
+    // alert("Username does not exist");
     
 });
 
