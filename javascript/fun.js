@@ -13,7 +13,7 @@ $(document).ready(function(){
     $.ajax({
         type:"GET",
         dataType:"json",
-        url:"http://localhost:3217/",
+        url:"http://localhost:3217/alldata",
     }).done(function(data){
          console.log(data);
          jsondata = data;
@@ -21,8 +21,8 @@ $(document).ready(function(){
             $('.customer,.report').hide();
             $('.newUser,.list').show();
             customerlist(jsondata); 
-        })
-    })
+        });
+    });
      $.ajax({
         type:"GET",
         dataType:"json",
@@ -33,9 +33,9 @@ $(document).ready(function(){
             $('.displayreport').click(function(){
                 console.log("hello");
                 reportlist(jsonQuantitydata);
-            })
-        })
-})
+            });
+        });
+});
 function customerlist(jsondata){
     console.log(jsondata);
     //Displaying all the customer list
@@ -77,11 +77,11 @@ $('.addamount').click(function(){
                 success:function(){
                     console.log("success");
                 }
-            })
+            });
         }   
-    })
+    });
     alert("Data inserted successfully");
-})
+});
 let totalQuantity=0;
 function reportlist(jsonQuantitydata){
     console.log(jsonQuantitydata);
@@ -124,20 +124,22 @@ $('.registerbtn').click(function(){
     storeMobileno = $('.authmobileno').val();
     console.log(storeMobileno);
     if(!(storeUsername=="" && storeAddress=="" && storeMobileno=="")){
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        url: "http://localhost:3217/alldata",
-        data:{
-            'username':storeUsername,
-            'address':storeAddress,
-            'mobileno':storeMobileno 
-        },
-        success:function(){
-            console.log("success");
-        }
-    });
-    alert("Successfully Registered");
-}
-alert("All fields are required");
-})
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "http://localhost:3217/alldata",
+            data:{
+                'username':storeUsername,
+                'address':storeAddress,
+                'mobileno':storeMobileno 
+            },
+            success:function(){
+                console.log("success");
+            }
+        });
+        alert("Successfully Registered");
+    }
+    else{
+        alert("All fields are required");
+    }
+});
