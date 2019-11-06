@@ -6,7 +6,7 @@ let store;
 let results = "";
 let result = "";
 let data;
-
+let validUsername;
 $(document).ready(function(){
     $('.newUser').hide();
     $('.list').hide();
@@ -38,6 +38,7 @@ $(document).ready(function(){
 // Calling function from click on customer button
 function customerlist(jsondata){
     console.log(jsondata);
+    validUsername=jsondata.username;
     //Displaying all the customer list
     jsondata.forEach(data => {
       results += `
@@ -120,12 +121,18 @@ let storeMobileno;
 let storeUsername;
 $('.registerbtn').click(function(){
     storeUsername = $('.authusername').val();
-    console.log(storeUsername);
     storeAddress = $('.authaddress').val();
-    console.log(storeAddress);
     storeMobileno = $('.authmobileno').val();
-    console.log(storeMobileno);
-    if(!(storeUsername=="" && storeAddress=="" && storeMobileno=="")){
+    if(storeUsername=="" || storeAddress=="" || storeMobileno==""){
+        alert("All fields are required");
+    }
+    else if(jsondata.find(checked=>{
+        if(storeUsername==checked.username){return true;}
+        else{return false;}
+    })){
+        alert("Username already exist");
+    }
+    else{
         $.ajax({
             type: "POST",
             dataType: "json",
@@ -140,8 +147,5 @@ $('.registerbtn').click(function(){
             }
         });
         alert("Successfully Registered");
-    }
-    else{
-        alert("All fields are required");
     }
 });
