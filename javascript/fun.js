@@ -125,8 +125,12 @@ $('.registerbtn').click(function(){
     storeUsername = $('.authusername').val();
     storeAddress = $('.authaddress').val();
     storeMobileno = $('.authmobileno').val();
+    let phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
     if(storeUsername=="" || storeAddress=="" || storeMobileno==""){
         alert("All fields are required");
+    }
+    else if(!(storeMobileno.match(phoneno))){
+        alert("Enter valid number");
     }
     else if(jsondata.find(checked=>{
         if(storeUsername==checked.username){return true;}
