@@ -15,7 +15,7 @@ $(document).ready(function(){
         dataType:"json",
         url:"http://localhost:3217/alldata",
     }).done(function(data){
-         console.log(data);
+         
          jsondata = data;
         $('.customerbtn').click(function(){
             $('.customer,.report').hide();
@@ -26,7 +26,7 @@ $(document).ready(function(){
      $.ajax({
         type:"GET",
         dataType:"json",
-        url:"http://localhost:3217/Quantityperday",
+        url:"http://localhost:3217/quantities",
      }).done(function(Quantitydata){
             // console.log(Quantitydata);
             jsonQuantitydata = Quantitydata;
@@ -68,7 +68,7 @@ $('.addamount').click(function(){
             $.ajax({
                 type:'POST',
                 dataType:'json',
-                url:'http://localhost:3217/Quantityperday',
+                url:'http://localhost:3217/quantities',
                 data:{
                     'username':compareUsername,
                     'date':storeDate,

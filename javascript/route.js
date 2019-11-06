@@ -17,16 +17,14 @@ router.post("/alldata", (req, res) => {
     newStore.save().then(userdata=>{
         if(!userdata)
             return res.status(404).json({"error":"user notstored"})
-            console.log(userdata);
+            // console.log(userdata);
             res.status(200).json({"success":"user stored successfully"})
     })
     .catch(err => console.log(err)); 
                 
 });
-            // col.collection("information").insertOne(store, function (err, result) {
-            //     console.log("successful");
-            // if (err) throw err;
-router.post("/Quantityperday",(req,res)=>{
+        
+router.post("/quantities",(req,res)=>{
     console.log("here");
     const storedata= {username:req.body.username, date:req.body.date, quantity:req.body.quantity};
     
@@ -39,7 +37,7 @@ router.post("/Quantityperday",(req,res)=>{
     newQuantity.save().then(quant=>{
         if(!quant)
         return res.status(404).json({"error":"Quantity is not stored"})
-        console.log(quant);
+        // console.log(quant);
         res.status(200).json({"success":"Quantity stored successfully"})
     })
     .catch(err => console.log(err));
@@ -48,15 +46,16 @@ router.post("/Quantityperday",(req,res)=>{
    
 router.get("/alldata", (req, res) => {
     Store.find()
-        .then((h)=>{
-            res.json({"res":h})
+        .then(result=>{
+            // console.log(result)
+            res.json(result);
         })
 });
-router.get("/Quantityperday", (req, res) => {
+router.get("/quantities", (req, res) => {
     Quantity.find()
-        .then((d)=>{
-            console.log(d)
-            res.json({"res":d});
+        .then(document=>{
+            // console.log(document)
+            res.json(document);
         });
 });
  
