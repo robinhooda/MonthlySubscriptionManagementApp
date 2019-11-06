@@ -22,14 +22,17 @@ $(document).ready(function(){
             customerlist(jsondata); 
         });
     });
-     $.ajax({
+    $('.headername').hide();
+    $.ajax({
         type:"GET",
         dataType:"json",
         url:"http://localhost:3217/quantities",
-     }).done(function(Quantitydata){
+    }).done(function(Quantitydata){
             // console.log(Quantitydata);
             jsonQuantitydata = Quantitydata;
             $('.displayreport').click(function(){
+                $('.displayreport').hide();
+                $('.headername').show();
                 console.log("hello");
                 reportlist(jsonQuantitydata);
             });
@@ -110,7 +113,7 @@ function reportlist(jsonQuantitydata){
       `;
     });
         $('.totalQuan').html(totalQuantity);
-    $('.displayreport').html(result);
+    $('.show').html(result);
 }
 // Checked user already exist or not
 let usrname;
