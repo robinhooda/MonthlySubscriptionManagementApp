@@ -34,7 +34,7 @@
     justify-content: center;
     align-items: center;
 }
-.customer,.servicer,.report,.login,.newuser{
+.customer,.servicer,.report,.login{
     height: 20vh;
     display: flex;
     justify-content: center;
@@ -76,6 +76,12 @@ hr{
 }
 .newUser,.addamount,.totalquantity{
     height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.newuser{
+    height: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
