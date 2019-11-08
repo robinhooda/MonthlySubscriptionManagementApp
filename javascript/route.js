@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Store =require("../Model/upload");
 const Quantity = require("../Model/quantity");
+const logic = require('./logic');
   
 // This post method used for storing customer data from database
 router.post("/alldata", (req, res) => {
@@ -11,7 +12,7 @@ router.post("/alldata", (req, res) => {
     console.log(note);
 
     
-    const newStore = new Store({
+    const newStore = new Store({ 
         username:note.username,
         address:note.address,
         mobileno:note.mobileno
@@ -49,21 +50,25 @@ router.post("/quantities",(req,res)=>{
     // save data
     newQuantity.save().then(quant=>{
         if(!quant)
-        return res.status(404).json({"error":"Quantity is not stored"})
+        return res.status(404).json({"error":"Quantity is not stored"});
         // console.log(quant);
-        res.status(200).json({"success":"Quantity stored successfully"})
+        res.status(200).json({"success":"Quantity stored successfully"});
     })
     // if error is occured
     .catch(err => console.log(err));
 });
-
+let document;
 // Fetching quantity related data from database
 router.get("/quantities", (req, res) => {
     Quantity.find()
         .then(document=>{
-            // console.log(document)
+            logic.qu(document);
+            // console.log(document[0].quantity);
             res.json(document);
         });
 });
+// function qu(document){
+// console.log(document)
+// }
 //  exports router module
 module.exports = router;
