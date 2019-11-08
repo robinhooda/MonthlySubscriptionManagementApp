@@ -57,18 +57,15 @@ router.post("/quantities",(req,res)=>{
     // if error is occured
     .catch(err => console.log(err));
 });
-let document;
+
 // Fetching quantity related data from database
 router.get("/quantities", (req, res) => {
     Quantity.find()
         .then(document=>{
-            logic.qu(document);
-            // console.log(document[0].quantity);
-            res.json(document);
+            d = logic.findQuantity(document);
+            res.send({document, d});
         });
 });
-// function qu(document){
-// console.log(document)
-// }
+
 //  exports router module
 module.exports = router;
