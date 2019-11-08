@@ -1,7 +1,7 @@
 // Javascript file 
 let jsondata="";
 let Quantitydata;
-let jsonQuantitydata="";
+let jsonQuantitydata;
 let store;
 let results = "";
 let result = "";
@@ -28,12 +28,11 @@ $(document).ready(function(){
         dataType:"json",
         url:"http://localhost:3217/quantities",
     }).done(function(Quantitydata){
-            // console.log(Quantitydata);
-            jsonQuantitydata = Quantitydata;
+            jsonQuantitydata = Quantitydata.document;
             $('.displayreport').click(function(){
                 $('.displayreport').hide();
                 $('.headername').show();
-                console.log("hello");
+                $('.totalQuan').text(Quantitydata.d);
                 reportlist(jsonQuantitydata);
             });
         });
@@ -97,12 +96,10 @@ $('.addamount').click(function(){
 });
 
 // Displayed quantity data
-let totalQuantity=0;
 function reportlist(jsonQuantitydata){
     console.log(jsonQuantitydata);
     //Displaying all record
     jsonQuantitydata.forEach(Quantitydata => {
-        totalQuantity = parseInt(totalQuantity) + parseInt(Quantitydata.quantity);
       result += `
         <ul class="list-group mb-4 shadow-sm">
           <li class="list-group-item bg-dark text-light font-weight-bold">Customer</li>
@@ -112,7 +109,6 @@ function reportlist(jsonQuantitydata){
         </ul>
       `;
     });
-        $('.totalQuan').html(totalQuantity);
     $('.show').html(result);
 }
 // Checked user already exist or not
