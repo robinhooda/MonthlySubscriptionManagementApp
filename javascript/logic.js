@@ -6,7 +6,8 @@ module.exports ={
         console.log(element.quantity);
         totalQuantity = totalQuantity + element.quantity;
     });
-    console.log(totalQuantity);
+    return totalQuantity;
 }
 };
+
 
