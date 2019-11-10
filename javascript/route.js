@@ -11,22 +11,20 @@ router.post("/alldata", (req, res) => {
     // Display on console
     console.log(note);
 
-    
     const newStore = new Store({ 
         username:note.username,
         address:note.address,
         mobileno:note.mobileno
-    })
+    });
     // Save data
     newStore.save().then(userdata=>{
         if(!userdata)
-            return res.status(404).json({"error":"user notstored"})
+            return res.status(404).json({"error":"user notstored"});
             // console.log(userdata);
-            res.status(200).json({"success":"user stored successfully"})
+            res.status(200).json({"success":"user stored successfully"});
     })
     // if error is occured 
-    .catch(err => console.log(err)); 
-                
+    .catch(err => console.log(err));              
 });
 // Fetching all data from database
 router.get("/alldata", (req, res) => {
@@ -34,7 +32,7 @@ router.get("/alldata", (req, res) => {
         .then(result=>{
             // console.log(result)
             res.json(result);
-        })
+        });
 });
    
 // this post method for storing quantity into database
@@ -62,10 +60,10 @@ router.post("/quantities",(req,res)=>{
 router.get("/quantities", (req, res) => {
     Quantity.find()
         .then(document=>{
-            d = logic.findQuantity(document);
+            const d = logic.findQuantity(document);
             res.send({document, d});
         });
 });
 
-//  exports router module
+// exports router module
 module.exports = router;
