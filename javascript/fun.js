@@ -29,10 +29,11 @@ $(document).ready(function(){
         url:"http://localhost:3217/quantities",
     }).done(function(Quantitydata){
             jsonQuantitydata = Quantitydata.document;
+            $('.totalQuan').text(Quantitydata.d);
             $('.displayreport').click(function(){
                 $('.displayreport').hide();
                 $('.headername').show();
-                $('.totalQuan').text(Quantitydata.d);
+                
                 reportlist(jsonQuantitydata);
             });
         });
@@ -99,6 +100,7 @@ $('.addamount').click(function(){
 function reportlist(jsonQuantitydata){
     console.log(jsonQuantitydata);
     //Displaying all record
+    
     jsonQuantitydata.forEach(Quantitydata => {
       result += `
         <ul class="list-group mb-4 shadow-sm">
