@@ -61,7 +61,8 @@ router.get("/quantities", (req, res) => {
     Quantity.find()
         .then(document=>{
             const d = logic.findQuantity(document);
-            res.send({document, d});
+            const b = logic.findUserQuantity(document);
+            res.send({document, d, b});
         });
 });
 
