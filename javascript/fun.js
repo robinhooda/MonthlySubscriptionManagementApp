@@ -29,6 +29,7 @@ $(document).ready(function(){
         url:"http://localhost:3217/quantities",
     }).done(function(Quantitydata){
             jsonQuantitydata = Quantitydata.document;
+            $('.totalAmount').text(Quantitydata.b);
             $('.totalQuan').text(Quantitydata.d);
             $('.displayreport').click(function(){
                 $('.displayreport').hide();
