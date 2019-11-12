@@ -1,5 +1,5 @@
 // Javascript file 
-let jsondata="";
+let jsondata;
 let Quantitydata;
 let jsonQuantitydata;
 let store;
@@ -23,8 +23,7 @@ $(document).ready(function(){
             customerlist(jsondata); 
         });
     });
-    $('.headername').hide();
-    $('.addQuantity').hide();
+    $('.userQReport').hide();
     // ajax call used for fetch quanity data
     $.ajax({
         type:"GET",
@@ -34,12 +33,12 @@ $(document).ready(function(){
         jsonQuantitydata = Quantitydata.document;
         $('.totalAmount').text(Quantitydata.b);
         $('.totalQuan').text(Quantitydata.d);
-        $('.displayreport').click(function(){
-            $('.displayreport').hide();
-            $('.headername').show();
-            $('.addQuantity').show();
+        $('.reportbtn').click(function(){
             reportlist(jsonQuantitydata);
         });
+        $('.clickbtn').click(function(){
+            userreportlist(jsonQuantitydata);
+        })
     }); 
 });
 // Calling function from click on customer button
@@ -107,19 +106,26 @@ $('.addamount').click(function(){
 // Displayed quantity data
 function reportlist(jsonQuantitydata){
     console.log(jsonQuantitydata);
-    //Displaying all record
-    
-    jsonQuantitydata.forEach(Quantitydata => {
-      result += `
-        <ul class="list-group mb-4 shadow-sm">
-          <li class="list-group-item bg-dark text-light font-weight-bold">Customer</li>
-          <li class="list-group-item">Username: ${Quantitydata.username}</li>
-          <li class="list-group-item">Date: ${Quantitydata.date}</li>
-          <li class="list-group-item">Quantity: ${Quantitydata.quantity}</li>
-        </ul>
-      `;
-    });
-    $('.show').html(result);
+    $('.showQuantity').show();
+    $('.showAmount').show();
+}
+
+let storeuser
+function userreportlist(jsonQuantitydata){
+    let tquantity=0;
+    let tamount;
+    storeuser= $('.user').val();
+    jsonQuantitydata.find(user=>{
+        if(storeuser==user.username){
+            tquantity=parseInt(tquantity) + parseInt(user.quantity);
+        }
+        console.log("here");
+        tamount=tquantity*51;
+        $('.userQReport').show();
+        $('.showQuan').text(tquantity);
+        $('.displayAmount').text(tamount);
+    })
+
 }
 // Checked user already exist or not
 let usrname;
