@@ -45,7 +45,7 @@
     justify-content: center;
     align-items: center;
 }
-.customerbtn,.reportbtn,.servicerbtn,.userbtn,.addquantity{
+.customerbtn,.customerbtn1,.reportbtn,.servicerbtn,.userbtn,.addquantity{
     border-radius: 25px;
     width: 30vw;
     height: 10vh; 
@@ -72,7 +72,7 @@
 }
 
 /* Customer Login page */
-.headername,.headername-1{
+.headername,.headername-1,.milkheader{
     height: 10vh;
     font-size: 40px;
     display: flex;
@@ -84,7 +84,7 @@ hr{
     color: var(--color-1);
     height: 2px;
 }
-.newUser,.addamount,.totalquantity,.addQuantity{
+.newUser,.addamount,.totalquantity,.addQuantity,.checkQuantity{
     height: 15vh;
     display: flex;
     justify-content: center;
@@ -142,7 +142,7 @@ hr{
     width:40vw;
     border: 3px solid;
 }
-.showAmount,.showQuantity,.goBack{
+.showAmount,.showQuantity,.goBack,.userQReport{
     margin-top:1vh;
     font-size:30px;
     justify-content: center;
@@ -151,4 +151,19 @@ hr{
 .show,.displayinfo{
     text-align: center;
     width:60vw;
+}
+.clickbtn{
+    border-radius: 15px;
+    width: 10vw;
+    height: 5vh; 
+    font-size:15px;
+    color:var(--color-3);
+    background-color:var(--color-1);
+}
+.user{
+    
+    height:5vh;
+    border-color:var(--color-1);
+    border-radius: 15px;
+    text-align: center;
 }
