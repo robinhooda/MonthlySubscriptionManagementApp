@@ -122,8 +122,10 @@ $('.loginbtn').click(function(){
     jsondata.find(check=>{
         if(usrname==check.username && mobile==check.mobileno){
             alert("Login successfully");
+            window.location="/pages/userSelection.html";
         }
     })
+
 })
 // Added username and address into database
 let storeAddress;
@@ -158,6 +160,7 @@ $('.registerbtn').click(function(){
             },
             success:function(){
                 console.log("success");
+                window.location="/pages/userSelection.html";
             }
         });
         alert("Successfully Registered");
