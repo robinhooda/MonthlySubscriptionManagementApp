@@ -95,12 +95,9 @@ $('.addamount').click(function(){
                 });
                 alert("Data inserted successfully");
                 window.location="/pages/report.html";
-            } 
-            
+            }  
         });
-    }
-    // alert("Username does not exist");
-    
+    } 
 });
 
 // Displayed quantity data
@@ -110,7 +107,7 @@ function reportlist(jsonQuantitydata){
     $('.showAmount').show();
 }
 
-let storeuser
+let storeuser;
 function userreportlist(jsonQuantitydata){
     let tquantity=0;
     let tamount;
