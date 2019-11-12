@@ -53,7 +53,7 @@
     color:var(--color-3);
     background-color:var(--color-1);  
 }
-.loginbtn,.displayreport{
+.loginbtn,.displayreport,.goBackbtn{
     border-radius: 20px;
     width: 20vw;
     height: 8vh; 
@@ -115,4 +115,23 @@ hr{
     height: 8vh;
     font-size:30px;
     color: var(--color-3);
+}
+/* for displayamount page */
+.layout{
+    margin-top: 20vh;
+    height: 40vh;
+    width:40vw;
+    border: 3px solid;
+}
+.showAmount,.showQuantity{
+    margin-top:4vh;
+    font-size:30px;
+    justify-content: center;
+    font-weight: bold;
+}
+.goBack{
+    margin-top: 1vh;;
+    font-size:30px;
+    justify-content: center;
+    font-weight: bold;
 }
