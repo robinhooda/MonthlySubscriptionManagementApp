@@ -10,6 +10,7 @@ let validUsername;
 $(document).ready(function(){
     $('.newUser').hide();
     $('.list').hide();
+    // ajax call for fetch all data from database
     $.ajax({
         type:"GET",
         dataType:"json",
@@ -24,21 +25,22 @@ $(document).ready(function(){
     });
     $('.headername').hide();
     $('.addQuantity').hide();
+    // ajax call used for fetch quanity data
     $.ajax({
         type:"GET",
         dataType:"json",
         url:"http://localhost:3217/quantities",
     }).done(function(Quantitydata){
-            jsonQuantitydata = Quantitydata.document;
-            $('.totalAmount').text(Quantitydata.b);
-            $('.totalQuan').text(Quantitydata.d);
-            $('.displayreport').click(function(){
-                $('.displayreport').hide();
-                $('.headername').show();
-                $('.addQuantity').show();
-                reportlist(jsonQuantitydata);
-            });
+        jsonQuantitydata = Quantitydata.document;
+        $('.totalAmount').text(Quantitydata.b);
+        $('.totalQuan').text(Quantitydata.d);
+        $('.displayreport').click(function(){
+            $('.displayreport').hide();
+            $('.headername').show();
+            $('.addQuantity').show();
+            reportlist(jsonQuantitydata);
         });
+    }); 
 });
 // Calling function from click on customer button
 function customerlist(jsondata){

@@ -28,7 +28,7 @@
 
 /* Index html page */
 .header{
-    height: 20vh;;
+    height: 15vh;;
     font-size: 50px;;
     display: flex;
     justify-content: center;
@@ -56,7 +56,7 @@
 .loginbtn,.registerbtn,.displayreport,.goBackbtn,.submit{
     border-radius: 25px;
     width: 20vw;
-    height: 10vh; 
+    height: 9vh; 
     font-size:30px;
     color:var(--color-3);
     background-color:var(--color-1);
@@ -88,6 +88,7 @@ hr{
 }
 .list,.list-1{
     font-size:25px;
+    justify-content: center;
 }
 .completeinfo,.reportdata{
     display:contents;
@@ -97,9 +98,6 @@ hr{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.displayinfo{
-    width:100vw;
 }
 /* registration page */
 .username,.address,.mobileNo,.register,.month,.amount{
@@ -121,15 +119,25 @@ hr{
     width:40vw;
     border: 3px solid;
 }
-.showAmount,.showQuantity{
-    margin-top:4vh;
+.layoutUserSelection{
+    margin-top: 10vh;
+    height: 50vh;
+    width:40vw;
+    border: 3px solid;
+}
+.layoutLogin{
+    margin-top: 20px;
+    height: 70vh;
+    width:40vw;
+    border: 3px solid;
+}
+.showAmount,.showQuantity,.goBack{
+    margin-top:1vh;
     font-size:30px;
     justify-content: center;
     font-weight: bold;
 }
-.goBack{
-    margin-top: 1vh;;
-    font-size:30px;
-    justify-content: center;
-    font-weight: bold;
+.show,.displayinfo{
+    text-align: center;
+    width:60vw;
 }
