@@ -1,6 +1,6 @@
 :root{
     --color-1: black;
-    --color-2:#4ebb0a;
+    --color-2:#0175B9;
     --color-3:white;
 }
 .container-fluid{
@@ -11,17 +11,17 @@
     background-color : #000000 !important;
 }
 .navbar-dark .navbar-text.navName {
-    color: white;
+    color:var(--color-3);
     font-weight: 400;
 }
 .icons {
-  color: white;
+  color: var(--color-3);
   position: relative;
   display : inline-block;
   font-size: 1.1em;
 }
 .icons:hover{
-    color: #0175B9;
+    color:var(--color-2);
     font-size: 120%;
     transition-duration: 10ms;
 }
@@ -109,7 +109,7 @@ hr{
     align-items: center; 
 }
 .registerbtn,.submit{
-    background-color: var(--color-2);
+    background-color: var(--color-1);
     border-radius: 20px;
     width: 30vw;
     height: 8vh;
