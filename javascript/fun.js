@@ -23,6 +23,7 @@ $(document).ready(function(){
         });
     });
     $('.headername').hide();
+    $('.addQuantity').hide();
     $.ajax({
         type:"GET",
         dataType:"json",
@@ -34,7 +35,7 @@ $(document).ready(function(){
             $('.displayreport').click(function(){
                 $('.displayreport').hide();
                 $('.headername').show();
-                
+                $('.addQuantity').show();
                 reportlist(jsonQuantitydata);
             });
         });
@@ -66,7 +67,10 @@ $('.addamount').click(function(){
     let dateValid = /^([0-9]{2})\/([0-9]{2})\/([0-9]{2})$/;
     storeQuantity = $('.quantity').val();
     console.log(storeQuantity);
-    if(!(storeDate.match(dateValid))){
+    if(compareusername=="" || storeDate=="" || storeQuantity==""){
+        alert("All fields are required");
+    }
+    else if(!(storeDate.match(dateValid))){
         alert("Invalid date format");
     }
     else{
@@ -89,6 +93,7 @@ $('.addamount').click(function(){
                     }
                 });
                 alert("Data inserted successfully");
+                window.location="/pages/report.html";
             } 
             
         });

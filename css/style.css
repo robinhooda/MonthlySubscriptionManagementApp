@@ -46,17 +46,17 @@
     align-items: center;
 }
 .customerbtn,.reportbtn,.servicerbtn,.userbtn,.addquantity{
-    border-radius: 20px;
+    border-radius: 25px;
     width: 30vw;
-    height: 8vh; 
+    height: 10vh; 
     font-size: 25px;
     color:var(--color-3);
     background-color:var(--color-1);  
 }
-.loginbtn,.displayreport,.goBackbtn{
-    border-radius: 20px;
+.loginbtn,.registerbtn,.displayreport,.goBackbtn,.submit{
+    border-radius: 25px;
     width: 20vw;
-    height: 8vh; 
+    height: 10vh; 
     font-size:30px;
     color:var(--color-3);
     background-color:var(--color-1);
@@ -74,7 +74,7 @@ hr{
     color: var(--color-1);
     height: 2px;
 }
-.newUser,.addamount,.totalquantity{
+.newUser,.addamount,.totalquantity,.addQuantity{
     height: 15vh;
     display: flex;
     justify-content: center;
@@ -108,13 +108,11 @@ hr{
     justify-content: center;
     align-items: center; 
 }
-.registerbtn,.submit{
-    background-color: var(--color-1);
-    border-radius: 20px;
-    width: 30vw;
-    height: 8vh;
-    font-size:30px;
-    color: var(--color-3);
+.authusername,.authaddress,.authmobileno,.matchDate,.matchusername,.quantity{
+    height:6vh;
+    border-color:var(--color-1);
+    border-radius: 15px;
+    text-align: center;
 }
 /* for displayamount page */
 .layout{
