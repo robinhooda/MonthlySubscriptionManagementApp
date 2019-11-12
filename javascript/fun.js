@@ -160,9 +160,9 @@ $('.registerbtn').click(function(){
             },
             success:function(){
                 console.log("success");
-                window.location="/pages/userSelection.html";
             }
         });
         alert("Successfully Registered");
+        window.location="/pages/userSelection.html";
     }
 });
