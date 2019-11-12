@@ -1,8 +1,7 @@
-let totalQuantity = 0;
-let userTotalQuantity = 0;
 module.exports ={
     findQuantity : function(document){
         console.log(document);
+        var totalQuantity = 0;
         document.forEach(element => {
             // console.log(element.quantity);
             totalQuantity = totalQuantity + element.quantity;
@@ -10,12 +9,13 @@ module.exports ={
         return totalQuantity;
     },
     findUserQuantity : function(document){
+        var userTotalQuantity = 0;
         document.forEach(element=>{
             console.log(element.username);
-            if(element.username == element.username){
-                userTotalQuantity = userTotalQuantity + element.quantity;
-            }
+            userTotalQuantity = userTotalQuantity + element.quantity;
         });
+        // milk rate per liter is 51
+        userTotalQuantity=userTotalQuantity*51;
         console.log(userTotalQuantity);
         return userTotalQuantity;
     }
