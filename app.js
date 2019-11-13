@@ -1,7 +1,7 @@
 const express =require('express');
 const uri = "mongodb+srv://pratiksha:rBBM2fscP3UQnk4H@cluster0-8sqx5.mongodb.net/Servicer?retryWrites=true&w=majority";
 const app = express();
-const port = 3217;
+const port = process.env.PORT || 3217;
 const mongoose = require('mongoose');
 const cors=require('cors');
 const bodyparser=require('body-parser')
