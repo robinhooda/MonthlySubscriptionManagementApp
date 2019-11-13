@@ -14,7 +14,7 @@ $(document).ready(function(){
     $.ajax({
         type:"GET",
         dataType:"json",
-        url:"http://localhost:3217/alldata",
+        url:"https://monthlysubscription.herokuapp.com/alldata",
     }).done(function(data){
          jsondata = data;
         $('.customerbtn').click(function(){
@@ -28,7 +28,7 @@ $(document).ready(function(){
     $.ajax({
         type:"GET",
         dataType:"json",
-        url:"http://localhost:3217/quantities",
+        url:"https://monthlysubscription.herokuapp.com/quantities",
     }).done(function(Quantitydata){
         jsonQuantitydata = Quantitydata.document;
         $('.totalAmount').text(Quantitydata.b);
@@ -83,7 +83,7 @@ $('.addamount').click(function(){
                 $.ajax({
                     type:'POST',
                     dataType:'json',
-                    url:'http://localhost:3217/quantities',
+                    url:'https://monthlysubscription.herokuapp.com/quantities',
                     data:{
                         'username':compareUsername,
                         'date':storeDate,
@@ -163,7 +163,7 @@ $('.registerbtn').click(function(){
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: "http://localhost:3217/alldata",
+            url: "https://monthlysubscription.herokuapp.com/alldata",
             data:{
                 'username':storeUsername,
                 'address':storeAddress,
