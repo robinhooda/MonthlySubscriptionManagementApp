@@ -14,4 +14,11 @@ The monthly subscription management shows the record of the month for daily expe
 * NodeJS
 * MongoDB
 * ExpressJS
+## Design
+![screenshot](images/Homepage.png)
+![screenshot](images/LoginPage.png)
+![screenshot](images/customerInfo.png)
+![screenshot](images/totalQuantity.png)
+![screenshot](images/AddQuantity.png)
+![screenshot](images/userQuantity.png)
 
