@@ -19,8 +19,7 @@ router.post("/alldata", (req, res) => {
     // Save data
     newStore.save().then(userdata=>{
         if(!userdata)
-            return res.status(404).json({"error":"user notstored"});
-            // console.log(userdata);
+            return res.status(404).json({"error":"user not stored"});
             res.status(200).json({"success":"user stored successfully"});
     })
     // if error is occured 
@@ -30,7 +29,6 @@ router.post("/alldata", (req, res) => {
 router.get("/alldata", (req, res) => {
     Store.find()
         .then(result=>{
-            // console.log(result)
             res.json(result);
         });
 });
@@ -49,7 +47,6 @@ router.post("/quantities",(req,res)=>{
     newQuantity.save().then(quant=>{
         if(!quant)
         return res.status(404).json({"error":"Quantity is not stored"});
-        // console.log(quant);
         res.status(200).json({"success":"Quantity stored successfully"});
     })
     // if error is occured
